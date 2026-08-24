@@ -1,0 +1,35 @@
+# London Trading Institute
+
+> London Trading Institute (LTI) is a London-based trading education provider offering courses, one-to-one mentorship and systematic/automated trading programmes across forex, cryptocurrency and options. LTI is led by Andy Demi and the LTI strategy development team.
+
+London Trading Institute helps individuals learn to trade professionally through structured education, mentorship and a systematic approach built on testing, evidence and risk management. LTI emphasises backtesting, forward testing and disciplined risk management rather than guesswork.
+
+Contact: info@londontradinginstitute.com · +44 20 3887 7398 · London, United Kingdom · https://www.londontradinginstitute.com
+
+## Courses and programmes
+
+- [Auto Strategy Club](https://www.londontradinginstitute.com/auto-strategy-club): Build, test and automate trading strategies without coding. A practical environment where non-programmers can turn trading ideas into clear rules, backtest them against historical data, forward test, manage risk and — when appropriate — automate execution from TradingView to MT4/MT5.
+- [Elite Trader Programme (one-to-one)](https://www.londontradinginstitute.com/elite-trader-programme): One-to-one trading mentorship with the LTI team for traders who want personalised guidance.
+- [Free Introductory Course](https://www.londontradinginstitute.com/intro-forex-course): A free introduction to trading and the LTI approach for beginners.
+- [Associate Trader Programme](https://www.londontradinginstitute.com/associate-trader-programme): A structured programme covering the core skills required to trade the markets professionally.
+- [Advanced Forex Course](https://www.londontradinginstitute.com/advanced-forex): An advanced forex course for traders building on the fundamentals.
+- [Options Trading Course](https://www.londontradinginstitute.com/options): Learn options theory and how to build trading strategies for different market conditions.
+- [Crypto Like A Pro Investing](https://www.londontradinginstitute.com/crypto-like-a-pro): How to build a passive cryptocurrency portfolio.
+- [Crypto Like A Pro Trading System](https://www.londontradinginstitute.com/crypto-like-a-pro-system): Learn to trade cryptocurrency using LTI's systematic strategies.
+
+## Tools and resources
+
+- [Pro FX Indicators](https://www.londontradinginstitute.com/indicators): LTI trading indicators designed to support more consistent, rule-based trading decisions.
+- [Events](https://www.londontradinginstitute.com/events): Live trading events and webinars.
+
+## About
+
+- [About London Trading Institute](https://www.londontradinginstitute.com/about): Who LTI is, its mission and the team.
+- [All Courses](https://www.londontradinginstitute.com/courses): The full LTI course catalogue.
+- [Contact](https://www.londontradinginstitute.com/contact): How to get in touch with the LTI team.
+- [Pricing](https://www.londontradinginstitute.com/pricing): Programme pricing information.
+
+## Notes
+
+- Trading involves risk. London Trading Institute provides education and is not a substitute for regulated financial advice.
+- Automation does not remove trading risk and does not guarantee a strategy will be profitable.
