@@ -152,6 +152,13 @@ const OverView = () => {
                     Auto Strategy Club is part of London Trading Institute and is led by Andy Demi and the LTI strategy development team. Our experience in the markets is combined with testing, automation and technology to develop trading systems in a structured way.<br /><br />
                     We don’t expect every trading idea to work. Testing is there to find that out. Sometimes the best result of a backtest is discovering that an idea isn’t good enough before risking any money on it.
                 </DescriptionContainer>
+
+                <IntroTitle style={{ fontSize: "28px", marginTop: "20px" }}>
+                    Interested in Auto Strategy Club?
+                </IntroTitle>
+                <DescriptionContainer style={{ fontSize: "16px", color: "#4B586A", marginTop: "10px", marginBottom: "40px" }}>
+                    If you would like to find out more about how Auto Strategy Club works, the strategies and technology available to members and whether it is suitable for the way you trade, you can book a call with the London Trading Institute team using the form below.
+                </DescriptionContainer>
             </div>
         </>
     )
