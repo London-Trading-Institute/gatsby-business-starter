@@ -51,3 +51,6 @@ Allow: /
 
 User-agent: Amazonbot
 Allow: /
+
+# Sitemap
+Sitemap: https://www.londontradinginstitute.com/sitemap.xml
