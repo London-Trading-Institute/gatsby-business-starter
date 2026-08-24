@@ -6,7 +6,7 @@ import laptop from '../img/laptop.png';
 
 const AboutPage = () => {
     return (
-        <Layout>
+        <Layout title={"Live Trading Events & Webinars"} description={"Join London Trading Institute's live trading events and webinars covering forex, crypto and systematic trading."}>
             <IntroCardEventsPage/>
             <Header className="font-mobile" style={{backgroundColor: "#F7F9FF"}}>
                   <div>

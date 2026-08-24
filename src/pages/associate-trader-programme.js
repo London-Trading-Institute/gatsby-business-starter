@@ -228,7 +228,7 @@ Crucially, you will learn how to piece all these together to form your very own 
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout title={"Associate Trader Programme"} description={"A structured trading programme teaching the core skills, strategy and risk management required to trade the markets professionally."}>
             <IntroCardCoursePage title={'Associate Trader Programme'} img={atp}
             description={'Learn the tools you need to become a consistantly profitable trader in the Forex markets'}/>
                 <CourseItem

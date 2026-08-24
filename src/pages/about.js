@@ -10,7 +10,7 @@ import middlesex from '../img/middlesex.jpeg'
 
 const AboutPage = () => {
     return (
-        <Layout>
+        <Layout title={"About Us"} description={"London Trading Institute is a London-based trading education provider led by Andy Demi and team, focused on systematic, evidence-based trading education and mentorship."}>
             <IntroCardAboutPage/>
             <div style={{backgroundColor: "#F7F9FF", padding: "0px 5%"}}>
               <Header style={{padding: "0px", fontSize: "34px"}}>

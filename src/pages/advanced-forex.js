@@ -225,7 +225,7 @@ price and exit before the move ends
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout title={"Advanced Forex Course"} description={"An advanced forex trading course for traders building on the fundamentals — refine your strategy, execution and risk management."}>
             <IntroCardCoursePage img={atp1} title={'Advanced Forex Course'} 
             description={'Learn the tools you need to become a consistantly profitable trader in the Forex markets'}/>
                 <CourseItem

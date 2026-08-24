@@ -127,7 +127,7 @@ const OverView = () => {
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout title={"Options Trading Course"} description={"Learn options theory and how to build options trading strategies for different market conditions with London Trading Institute."}>
             <IntroCardCoursePage img={options} title={'Options'} description={'Learn Options theory and build trading strategies for all market conditions'}/>
                 <CourseItem
                     mentors={<Mentors/>}

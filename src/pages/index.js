@@ -4,7 +4,7 @@ import Content from './content/home.json'
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout title={"Professional Trading Courses & Mentorship"} description={"London Trading Institute provides professional trading education, one-to-one mentorship and systematic trading programmes across forex, crypto and options — built on testing, evidence and risk management."}>
             <IntroCard data = {Content.introCard}/>
             <Courses/>
             <About/>

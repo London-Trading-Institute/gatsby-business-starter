@@ -4,7 +4,7 @@ import Content from './content/pricing.json'
 
 const pricing = () => {
     return (
-        <Layout>
+        <Layout title={"Pricing"} description={"Pricing information for London Trading Institute's trading courses, programmes and mentorship."}>
             <PricingBanner title = {Content.title} description = {Content.description} />
             <PricingCards data = {Content.plans}/>
         </Layout>

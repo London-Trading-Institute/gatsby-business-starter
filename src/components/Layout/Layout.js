@@ -10,8 +10,10 @@ import "@fontsource/league-spartan/600.css";
 
 import "./index.css";
 
-const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+const TemplateWrapper = ({ children, title, description }) => {
+  const { title: siteTitle, description: siteDescription } = useSiteMetadata()
+  const pageTitle = title ? `${title} | ${siteTitle}` : siteTitle
+  const metaDescription = description || siteDescription
   useEffect(() => {
 
     //trustpilot
@@ -100,8 +102,8 @@ const TemplateWrapper = ({ children }) => {
       <OrganizationSchema />
       <Helmet>
         <html lang="en" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={metaDescription} />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
@@ -127,7 +129,8 @@ const TemplateWrapper = ({ children }) => {
         />
         <meta name="theme-color" content="#fff" />
         <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:url" content="/" />
         <meta
           property="og:image"

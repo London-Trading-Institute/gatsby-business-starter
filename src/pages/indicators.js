@@ -67,7 +67,7 @@ const IndexPage = () => {
   }
 
     return (
-        <Layout>
+        <Layout title={"Pro FX Trading Indicators"} description={"London Trading Institute's Pro FX indicators are designed to support more consistent, rule-based trading decisions. Download a free trial."}>
                { show && <ModalContainer>
                 <Modal>
                 <span style={{display: show? '' :"none",textAlign: "right", margin: "15px", fontSize: "20px", cursor: "pointer", color: "grey"}}

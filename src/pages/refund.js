@@ -21,7 +21,7 @@ console.log('a',children)
 
 const AboutPage = () => {
     return (
-        <Layout>
+        <Layout title={"Refund Policy & Terms"} description={"London Trading Institute's refund policy, terms and conditions."}>
             <div style={{backgroundColor: "#F7F9FF", padding: "30px 5%"}}>
               <div style={{display: "flex", flexDirection: "column",justifyContent: "center", alignItems: "center"}}>
                 <IntroTitle style={{marginBottom: "20px", textAlign: "center"}}>

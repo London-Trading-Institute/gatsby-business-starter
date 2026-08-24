@@ -207,7 +207,7 @@ const IndexPage = () => {
     }
 
     return (
-        <Layout>
+        <Layout title={"Free Introductory Forex Course"} description={"A free introduction to trading and the London Trading Institute approach — ideal for beginners starting their trading journey."}>
             <Form emailInput={''} showInput={show}/>
             <IntroCardCoursePage img={intro} title={'Introductory Forex Course'} description={''}/>
                 <CourseItem

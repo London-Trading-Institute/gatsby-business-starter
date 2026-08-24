@@ -127,7 +127,7 @@ const All = () => {
 
 const AboutPage = () => {
     return (
-        <Layout>
+        <Layout title={"Trading Courses & Programmes"} description={"Explore London Trading Institute's full range of trading courses and programmes — from the free introductory course to one-to-one mentorship and Auto Strategy Club."}>
             <IntroCardCoursesPage/>
              <CourseList
                 all={<All/>}

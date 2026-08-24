@@ -21,7 +21,7 @@ const BulletT = ({children}) => {
 
 const AboutPage = () => {
     return (
-        <Layout>
+        <Layout title={"Privacy Policy"} description={"London Trading Institute's privacy policy."}>
             <div style={{backgroundColor: "#F7F9FF", padding: "30px 5%"}}>
               <div style={{display: "flex", flexDirection: "column",justifyContent: "center", alignItems: "center"}}>
                 <IntroTitle style={{marginBottom: "20px", textAlign: "center"}}>

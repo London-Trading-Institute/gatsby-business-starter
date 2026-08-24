@@ -166,7 +166,7 @@ const OverView = () => {
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout title={"Auto Strategy Club — Build & Automate Trading Strategies"} description={"Build, test and automate trading strategies without coding. Auto Strategy Club helps traders turn ideas into tested, rule-based systems and automate them from TradingView to MT4/MT5."}>
             <IntroCardCoursePage
                 img={asc}
                 title={'Auto Strategy Club'}

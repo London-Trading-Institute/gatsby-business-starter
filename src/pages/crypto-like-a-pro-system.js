@@ -199,7 +199,7 @@ become part of the top 1% of investors.
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout title={"Crypto Like A Pro — Trading System"} description={"Learn to trade cryptocurrency using London Trading Institute's systematic, rule-based Crypto Like A Pro trading strategies."}>
             <IntroCardCoursePage img={clpt} title={'Crypto like a Pro Trading'} description={'Learn to Trade Crypto Like a Pro using our proven winning strategies'}/>
                 <CourseItem
                     mentors={<Mentors/>}

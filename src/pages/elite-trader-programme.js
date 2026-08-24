@@ -337,7 +337,7 @@ const IndexPage = () => {
        });
      }
     return (
-        <Layout>
+        <Layout title={"Elite Trader Programme — One-to-One Mentorship"} description={"One-to-one trading mentorship with the London Trading Institute team for traders who want personalised, structured guidance to trade professionally."}>
             <IntroCardCoursePage title={'Elite Trader Programme (one-to-one)'} img={atp}
             description={'Learn the tools you need to become a consistantly profitable trader in the Forex markets'}/>
                 <CourseItem

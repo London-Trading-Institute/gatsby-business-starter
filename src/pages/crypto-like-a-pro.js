@@ -190,7 +190,7 @@ mere 15 minutes per day.
 
 const IndexPage = () => {
     return (
-        <Layout>
+        <Layout title={"Crypto Like A Pro — Investing"} description={"Learn how to build a passive cryptocurrency portfolio with London Trading Institute's Crypto Like A Pro investing programme."}>
             <IntroCardCoursePage img={clp} title={'Crypto Like A Pro Investing'} description={'How to build a Passive Crypto Portfolio for potentially life changing gains'}/>
                 <CourseItem
                     mentors={<Mentors/>}
