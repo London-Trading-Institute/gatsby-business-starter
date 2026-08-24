@@ -3,6 +3,7 @@ import {  Button, InputField, IntroCardContainer, IntroTitle, DescriptionContain
 import landing from '../../img/landing.png'
 import axios from 'axios';
 import Form from '../Form/Form';
+import { CourseSchema } from '../StructuredData';
 
 axios.defaults.baseURL = 'https://hooks.zapier.com';
 
@@ -25,6 +26,7 @@ const IntroCard = ({title, description, img}) => {
       }
     return (
         <>
+        <CourseSchema name={title} description={description} />
         <Form emailInput={email} showInput={show} isCourse={true}/>
         <IntroCardContainer>
             <IntroLeftContainerHeader>

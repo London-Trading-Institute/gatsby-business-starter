@@ -3,6 +3,7 @@ module.exports = {
     title: 'London Trading Institute',
     description:
       'The official Business page of London trading Institute',
+    siteUrl: 'https://www.londontradinginstitute.com',
     },
   plugins: [
     'gatsby-plugin-react-helmet',

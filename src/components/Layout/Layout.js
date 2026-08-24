@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet'
 import useSiteMetadata from '../SiteMetadata';
 import { withPrefix } from 'gatsby';
 import { Navbar, Footer } from '../../components';
+import { OrganizationSchema } from '../StructuredData';
 import GlobalStyle from '../../globalStyles';
 import "@fontsource/league-spartan/400.css";
 import "@fontsource/league-spartan/600.css";
@@ -96,6 +97,7 @@ const TemplateWrapper = ({ children }) => {
   return (
     <div>
       <GlobalStyle />
+      <OrganizationSchema />
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
