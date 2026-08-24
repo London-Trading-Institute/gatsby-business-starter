@@ -9,6 +9,7 @@ import atp from '../../img/atp1.jpg'
 import clpt from '../../img/clpt.jpg'
 import intro from '../../img/intro.jpg'
 import etp from '../../img/etp.png'
+import asc from '../../img/algorithms.jpg'
 
 const Course = ({title, duration, img, page, difficulty, crypto, small}) => {
     return (
@@ -71,10 +72,11 @@ const Courses = (props) => {
                 <FlexContainer>
                     <Course title="Free Introductory Course" page={'/intro-forex-course'} img={intro} duration={"1 month"}/>
                     <Course
-                        title="Associate Trader Programme"
-                        img={atp}
-                        duration={"3 months"}
-                        page={'/associate-trader-programme'}
+                        title="Auto Strategy Club"
+                        img={asc}
+                        duration={"Ongoing"}
+                        difficulty={"All levels"}
+                        page={'/auto-strategy-club'}
                     />
                     <Course title="Elite Trader Programme (one-to-one)" img={etp} page={'/elite-trader-programme'} small={true} duration={"4 months"} difficulty={"intermediate"}/>
                         {/*<Course 

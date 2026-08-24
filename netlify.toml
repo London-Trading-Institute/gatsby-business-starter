@@ -6,3 +6,10 @@
   NODE_VERSION = "16.8"
   YARN_VERSION = "1.22.4"
   YARN_FLAGS = "--no-ignore-optional"
+
+# Old Algorithmic Trading Course page has been replaced by Auto Strategy Club.
+[[redirects]]
+  from = "/algorithms"
+  to = "/auto-strategy-club"
+  status = 301
+  force = true
