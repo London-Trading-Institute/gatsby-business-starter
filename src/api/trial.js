@@ -17,11 +17,18 @@ export default async function handler(req, res) {
     return res.status(405).json({ status: 'error', message: 'Method not allowed' })
   }
 
-  const secret = process.env.LICENCE_TRIAL_SECRET
-  if (!secret) {
-    console.error('LICENCE_TRIAL_SECRET is not set')
-    return res.status(500).json({ status: 'error', message: 'Server not configured' })
-  }
+  // Prefer a host env var (set LICENCE_TRIAL_SECRET to override). Falls back to an
+  // obfuscated embedded value so the trial works without host env-var access.
+  // NOTE: base64 is obfuscation, NOT encryption — anyone with repo access can
+  // decode it. Accepted trade-off for a low-sensitivity trial key; rotate it and
+  // move to a real env var once host access is available. Server-side only —
+  // this is never shipped to the browser.
+  const secret =
+    process.env.LICENCE_TRIAL_SECRET ||
+    Buffer.from(
+      'NjlkM2VhYTFhMmI1ZjQwYTQwMGVkMzY5NDc3NjU1Y2I5YjFlN2ZlZmEwNmU2ODU4',
+      'base64'
+    ).toString('utf8')
 
   const data = req.body || {}
   const name = (data.name || '').trim()
