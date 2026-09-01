@@ -74,7 +74,7 @@ const AlphaTrialModal = ({ show, onClose }) => {
     setStatus('loading')
     setMessage('')
     try {
-      const res = await fetch('/.netlify/functions/trial', {
+      const res = await fetch('/api/trial', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
