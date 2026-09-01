@@ -41,7 +41,7 @@ const Footer = () => {
                         Events
                     </div>
                     <div style={{fontSize: "16px", textAlign: "start"}}>
-                        Indicators
+                        Free Trials
                     </div>
                 </div>
                 <div style={{display: "flex", justifyContent: "flex-end", width: "100%"}}>

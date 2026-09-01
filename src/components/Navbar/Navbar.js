@@ -89,8 +89,8 @@ const Navbar = () => {
                     </NavLink>
                  </NavItem>
                  <NavItem>
-                    <NavLink to="/indicators">
-                        Indicators
+                    <NavLink to="/free-trials">
+                        Free Trials
                     </NavLink>
                  </NavItem>
                  <NavItem>

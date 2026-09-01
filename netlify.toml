@@ -13,3 +13,10 @@
   to = "/auto-strategy-club"
   status = 301
   force = true
+
+# Indicators page has been folded into the unified Free Trials page.
+[[redirects]]
+  from = "/indicators"
+  to = "/free-trials"
+  status = 301
+  force = true
