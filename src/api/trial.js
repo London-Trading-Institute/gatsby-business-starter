@@ -12,6 +12,35 @@ import axios from 'axios'
 const DEFAULT_ENDPOINT =
   'http://licence.manager.londontradinginstitute.londontradinggroup.com/trial'
 
+// Best-effort push of the lead into GoHighLevel via an Inbound Webhook.
+// Set GHL_TRIAL_WEBHOOK_URL to the workflow's inbound-webhook URL to enable it.
+// Never throws — a GHL failure must not block trial-licence creation.
+async function addToGhl({ name, email, phone, product, tags }) {
+  const url = process.env.GHL_TRIAL_WEBHOOK_URL
+  if (!url) return // not configured yet — skip silently
+  try {
+    await axios.post(
+      url,
+      {
+        name,
+        first_name: name,
+        email,
+        phone,
+        product,
+        tags, // e.g. ["free-trial", "alpha-trial"]
+        source: 'website-free-trial',
+      },
+      {
+        headers: { 'Content-Type': 'application/json' },
+        timeout: 8000,
+        validateStatus: () => true,
+      }
+    )
+  } catch (err) {
+    console.error('GHL webhook failed (non-fatal):', err.message)
+  }
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ status: 'error', message: 'Method not allowed' })
@@ -66,6 +95,14 @@ export default async function handler(req, res) {
     const body = resp.data || {}
 
     if (resp.status === 200 && (body.status === 'created' || body.status === 'resent')) {
+      // Also add the lead to GoHighLevel with tags (best-effort, non-blocking).
+      await addToGhl({
+        name,
+        email,
+        phone,
+        product,
+        tags: ['free-trial', `${product}-trial`],
+      })
       return res.status(200).json({
         status: body.status,
         message: 'Check your email to start your trial.',
