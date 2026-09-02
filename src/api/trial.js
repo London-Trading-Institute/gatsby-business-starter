@@ -17,8 +17,16 @@ const DEFAULT_ENDPOINT =
 // Set GHL_API_TOKEN to enable it; tags are applied directly here.
 // Never throws — a GHL failure must not block trial-licence creation.
 async function addToGhl({ name, email, phone, product, tags }) {
-  const token = process.env.GHL_API_TOKEN
-  if (!token) return // not configured yet — skip silently
+  // Env var takes priority; falls back to an obfuscated embedded token (base64,
+  // NOT encryption). Contacts read/write scope — rotate + move to an env var
+  // when host access is available. Server-side only; never sent to the browser.
+  const token =
+    process.env.GHL_API_TOKEN ||
+    Buffer.from(
+      'cGl0LTJjZDY2NWQ0LTNjYjQtNGRmNS1hMDY4LTZlYWMwZGY5ZGI0NQ==',
+      'base64'
+    ).toString('utf8')
+  if (!token) return // not configured — skip silently
 
   const locationId = process.env.GHL_LOCATION_ID || 'cikP5PBhdRcZG8DtLEDD'
   const [firstName, ...rest] = (name || '').trim().split(/\s+/)
