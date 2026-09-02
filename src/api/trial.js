@@ -12,32 +12,45 @@ import axios from 'axios'
 const DEFAULT_ENDPOINT =
   'http://licence.manager.londontradinginstitute.londontradinggroup.com/trial'
 
-// Best-effort push of the lead into GoHighLevel via an Inbound Webhook.
-// Set GHL_TRIAL_WEBHOOK_URL to the workflow's inbound-webhook URL to enable it.
+// Best-effort push of the lead into GoHighLevel via the Contacts API (v2).
+// Uses a Private Integration Token (not the premium Inbound Webhook trigger).
+// Set GHL_API_TOKEN to enable it; tags are applied directly here.
 // Never throws — a GHL failure must not block trial-licence creation.
 async function addToGhl({ name, email, phone, product, tags }) {
-  const url = process.env.GHL_TRIAL_WEBHOOK_URL
-  if (!url) return // not configured yet — skip silently
+  const token = process.env.GHL_API_TOKEN
+  if (!token) return // not configured yet — skip silently
+
+  const locationId = process.env.GHL_LOCATION_ID || 'cikP5PBhdRcZG8DtLEDD'
+  const [firstName, ...rest] = (name || '').trim().split(/\s+/)
+  const lastName = rest.join(' ')
+
   try {
+    // Upsert avoids duplicate contacts (matches on email/phone) and merges tags.
     await axios.post(
-      url,
+      'https://services.leadconnectorhq.com/contacts/upsert',
       {
+        locationId,
         name,
-        first_name: name,
+        firstName: firstName || name,
+        lastName,
         email,
-        phone,
-        product,
+        ...(phone ? { phone } : {}),
         tags, // e.g. ["free-trial", "alpha-trial"]
         source: 'website-free-trial',
       },
       {
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          Authorization: `Bearer ${token}`,
+          Version: '2021-07-28',
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
         timeout: 8000,
         validateStatus: () => true,
       }
     )
   } catch (err) {
-    console.error('GHL webhook failed (non-fatal):', err.message)
+    console.error('GHL upsert failed (non-fatal):', err.message)
   }
 }
 
