@@ -10,7 +10,7 @@
 import axios from 'axios'
 
 const DEFAULT_ENDPOINT =
-  'http://licence.manager.londontradinginstitute.londontradinggroup.com/trial'
+  'https://licence.manager.londontradinginstitute.londontradinggroup.com/trial'
 
 // Best-effort push of the lead into GoHighLevel via the Contacts API (v2).
 // Uses a Private Integration Token (not the premium Inbound Webhook trigger).
