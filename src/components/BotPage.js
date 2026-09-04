@@ -2,16 +2,25 @@ import React, { useState } from 'react'
 import Layout from './Layout/Layout'
 import { Button } from './Courses/Courses.elements'
 import { ContactLabel, FormContainer, InputContainer, InputField, Label } from './ContactForm/ContactForm.elements'
-import { Header, Underline, RDiv } from '../globalStyles'
 
 // Reusable per-bot page template (PLACEHOLDER preview for Andy).
 // Real copy, equity-curve images, videos and Vantage setup steps to be supplied.
 
-const Placeholder = ({ label, height = 240 }) => (
+const wrap = { maxWidth: '1080px', margin: '0 auto', padding: '0 24px', width: '100%' }
+const eyebrow = { fontSize: '13px', letterSpacing: '2px', color: '#FFAB00', fontWeight: 700, marginBottom: '12px' }
+
+const SectionHeading = ({ children }) => (
+  <>
+    <h2 style={{ fontSize: '26px', fontWeight: 700, color: '#0F1C38', margin: '0 0 6px' }}>{children}</h2>
+    <div style={{ width: '54px', height: '4px', background: '#FFAB00', borderRadius: '2px', marginBottom: '24px' }} />
+  </>
+)
+
+const Placeholder = ({ label, height = 220 }) => (
   <div
     style={{
       border: '2px dashed #C3CBDA',
-      borderRadius: '8px',
+      borderRadius: '10px',
       minHeight: height,
       width: '100%',
       display: 'flex',
@@ -22,6 +31,7 @@ const Placeholder = ({ label, height = 240 }) => (
       background: '#F7F9FF',
       textAlign: 'center',
       padding: '20px',
+      boxSizing: 'border-box',
     }}
   >
     {label}
@@ -65,7 +75,7 @@ const SignupForm = ({ productCode }) => {
 
   if (status === 'success') {
     return (
-      <FormContainer style={{ maxWidth: '480px' }}>
+      <FormContainer style={{ maxWidth: '460px', margin: 0 }}>
         <ContactLabel>You’re all set 🎉</ContactLabel>
         <div style={{ padding: '10px 0px', fontSize: '18px', color: '#4B586A' }}>{message}</div>
         <div style={{ fontSize: '14px', color: '#8790A5' }}>
@@ -76,7 +86,7 @@ const SignupForm = ({ productCode }) => {
   }
 
   return (
-    <FormContainer style={{ maxWidth: '480px' }}>
+    <FormContainer style={{ maxWidth: '460px', margin: 0 }}>
       <ContactLabel>Start your 7-day free trial</ContactLabel>
       <InputContainer>
         <Label>Name</Label>
@@ -111,56 +121,60 @@ const BotPage = ({
   return (
     <Layout title={`${name} — Trading Bot`} description={tagline}>
       {/* Hero */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', padding: '50px 7% 30px', alignItems: 'center' }}>
-        <div style={{ flex: '1 1 340px' }}>
-          <div style={{ fontSize: '13px', letterSpacing: '2px', color: '#FFAB00', marginBottom: '10px' }}>
-            TRADING BOT (EA)
+      <div style={{ padding: '60px 0 40px' }}>
+        <div style={{ ...wrap, display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }}>
+          <div style={{ flex: '1 1 320px' }}>
+            <div style={eyebrow}>TRADING BOT (EA)</div>
+            <h1 style={{ fontSize: '42px', fontWeight: 700, color: '#0F1C38', margin: '0 0 14px' }}>{name}</h1>
+            <p style={{ fontSize: '18px', color: '#4B586A', lineHeight: 1.6, margin: '0 0 24px' }}>{tagline}</p>
+            {status === 'coming-soon' ? (
+              <div style={{ display: 'inline-block', background: '#EEF1F8', color: '#4B586A', padding: '10px 18px', borderRadius: '6px', fontSize: '16px' }}>
+                Coming soon
+              </div>
+            ) : (
+              <a href="#trial" style={{ textDecoration: 'none' }}>
+                <Button style={{ fontSize: '18px' }}>Start 7-Day Free Trial</Button>
+              </a>
+            )}
           </div>
-          <div style={{ fontSize: '40px', fontWeight: 700, color: '#0F1C38', marginBottom: '14px' }}>{name}</div>
-          <div style={{ fontSize: '18px', color: '#4B586A', marginBottom: '24px' }}>{tagline}</div>
-          {status === 'coming-soon' ? (
-            <div style={{ display: 'inline-block', background: '#EEF1F8', color: '#4B586A', padding: '10px 18px', borderRadius: '6px', fontSize: '16px' }}>
-              Coming soon
-            </div>
-          ) : (
-            <a href="#trial"><Button style={{ fontSize: '18px' }}>Start 7-Day Free Trial</Button></a>
-          )}
-        </div>
-        <div style={{ flex: '1 1 340px' }}>
-          <Placeholder label="Equity curve / performance chart — image to be added" height={260} />
+          <div style={{ flex: '1 1 320px' }}>
+            <Placeholder label="Equity curve / performance chart — image to be added" height={260} />
+          </div>
         </div>
       </div>
 
       {/* What it is */}
-      <Header className="font-mobile" style={{ backgroundColor: '#F7F9FF' }}>
-        <div><div>What is {name}?</div><Underline /></div>
-      </Header>
-      <div style={{ padding: '20px 7% 10px', maxWidth: '900px' }}>
-        <p style={{ fontSize: '16px', color: '#4B586A', lineHeight: 1.7 }}>{description}</p>
-        <ul style={{ fontSize: '16px', color: '#4B586A', lineHeight: 1.9 }}>
-          {bullets.map((b, i) => (<li key={i}>{b}</li>))}
-        </ul>
+      <div style={{ background: '#F7F9FF', padding: '48px 0' }}>
+        <div style={wrap}>
+          <SectionHeading>What is {name}?</SectionHeading>
+          <p style={{ fontSize: '16px', color: '#4B586A', lineHeight: 1.8, maxWidth: '760px' }}>{description}</p>
+          {bullets.length > 0 && (
+            <ul style={{ fontSize: '16px', color: '#4B586A', lineHeight: 2, maxWidth: '760px' }}>
+              {bullets.map((b, i) => (<li key={i}>{b}</li>))}
+            </ul>
+          )}
+        </div>
       </div>
 
       {/* How it works */}
-      <Header className="font-mobile" style={{ backgroundColor: '#F7F9FF' }}>
-        <div><div>How it works</div><Underline /></div>
-      </Header>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', padding: '20px 7% 30px' }}>
-        <div style={{ flex: '1 1 320px' }}>
-          <Placeholder label="Walkthrough video — to be added" height={220} />
-        </div>
-        <div style={{ flex: '1 1 320px' }}>
-          <Placeholder label="Setup instructions (designed for Vantage) — steps + PDF to be added" height={220} />
+      <div style={{ padding: '48px 0' }}>
+        <div style={wrap}>
+          <SectionHeading>How it works</SectionHeading>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px' }}>
+            <div style={{ flex: '1 1 320px' }}>
+              <Placeholder label="Walkthrough video — to be added" height={220} />
+            </div>
+            <div style={{ flex: '1 1 320px' }}>
+              <Placeholder label="Setup instructions (designed for Vantage) — steps + PDF to be added" height={220} />
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Signup */}
-      <div id="trial" style={{ padding: '20px 7% 80px' }}>
-        <Header className="font-mobile" style={{ backgroundColor: '#F7F9FF' }}>
-          <div><div>{status === 'coming-soon' ? 'Register your interest' : 'Start your free trial'}</div><Underline /></div>
-        </Header>
-        <div style={{ marginTop: '20px' }}>
+      <div id="trial" style={{ background: '#F7F9FF', padding: '48px 0 80px' }}>
+        <div style={wrap}>
+          <SectionHeading>{status === 'coming-soon' ? 'Register your interest' : 'Start your free trial'}</SectionHeading>
           {status === 'coming-soon' ? (
             <Placeholder label="Interest / waitlist form — to be added when this bot launches" height={160} />
           ) : (
