@@ -14,9 +14,9 @@
   status = 301
   force = true
 
-# Indicators page has been folded into the unified Free Trials page.
+# Free Trials page was reverted back to the Indicators page.
 [[redirects]]
-  from = "/indicators"
-  to = "/free-trials"
+  from = "/free-trials"
+  to = "/indicators"
   status = 301
   force = true

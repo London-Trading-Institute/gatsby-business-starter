@@ -175,15 +175,15 @@ const IndicatorCard = ({ image, video, title, tagline, body, onTry }) => (
   </Card>
 )
 
-const FreeTrialsPage = () => {
+const IndicatorsPage = () => {
   const [showIndicator, setShowIndicator] = useState(false)
   // eslint-disable-next-line no-unused-vars
   const [showAlpha, setShowAlpha] = useState(false) // kept for when ALPHA is re-enabled
 
   return (
     <Layout
-      title={'Free Indicator Trials'}
-      description={"Download free trials of London Trading Institute's Pro FX indicators — Daily Trading Range, Auto Fibonacci, Supply & Demand zones, automatic trend lines and a position risk manager."}
+      title={'Pro FX Trading Indicators'}
+      description={"London Trading Institute's Pro FX indicators — Daily Trading Range, Auto Fibonacci, Supply & Demand zones, automatic trend lines and a position risk manager. Download a free trial."}
     >
       <IndicatorTrialModal show={showIndicator} onClose={() => setShowIndicator(false)} />
       {/* ALPHA modal hidden until the EA is ready to go public:
@@ -289,4 +289,4 @@ const FreeTrialsPage = () => {
   )
 }
 
-export default FreeTrialsPage
+export default IndicatorsPage
