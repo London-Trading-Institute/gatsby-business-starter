@@ -94,6 +94,11 @@ const Navbar = () => {
                     </NavLink>
                  </NavItem>
                  <NavItem>
+                    <NavLink to="/trading-bots">
+                        Trading Bots
+                    </NavLink>
+                 </NavItem>
+                 <NavItem>
                     <NavLink to="/">
                             <Button style={{padding: "10px 10px", marginTop: "0px"}} onClick={() =>{toggleModal(true)}}>
                             Free Consultation
