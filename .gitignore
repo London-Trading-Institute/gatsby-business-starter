@@ -25,6 +25,9 @@ yarn-error.log
 # Redact the x-api-key before ever committing this.
 TRIAL_WEBHOOK_INTEGRATION.md
 
+# Source thumbnails staging folder — copies live in src/img/indicators/
+/thumbnails/
+
 # Logs
 *.log
 npm-debug.log*

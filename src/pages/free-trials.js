@@ -7,6 +7,11 @@ import Content from './content/home.json'
 import axios from 'axios'
 import { Banner } from '../components/About/About.element'
 import alpha from '../img/algorithms.jpg'
+import dtr from '../img/indicators/dtr.png'
+import trendLines from '../img/indicators/trend-lines.png'
+import autoFib from '../img/indicators/auto-fibonacci.png'
+import supplyDemand from '../img/indicators/supply-demand.png'
+import positionRisk from '../img/indicators/position-risk-manager.png'
 
 // --- Indicators free trial (existing flow: Zapier lead capture) ---
 const IndicatorTrialModal = ({ show, onClose }) => {
@@ -56,7 +61,10 @@ const IndicatorTrialModal = ({ show, onClose }) => {
 }
 
 // --- ALPHA EA free trial (server-side -> LTG Licence Manager) ---
-// Posts to the Netlify function, which holds the secret and calls /trial.
+// NOTE: ALPHA is intentionally NOT rendered on the page yet. It's designed for a
+// specific broker (Vantage) and needs setup instructions + email + video before
+// going public. Component kept here so it can be re-enabled quickly. See the
+// commented-out "Expert Advisors" section below.
 const AlphaTrialModal = ({ show, onClose }) => {
   const [form, setForm] = useState({ name: '', email: '', phone: '' })
   const [status, setStatus] = useState('idle') // idle | loading | success | error
@@ -148,10 +156,13 @@ const AlphaTrialModal = ({ show, onClose }) => {
   )
 }
 
-const IndicatorCard = ({ video, title, tagline, body, onTry }) => (
+// Indicator card: clean thumbnail image that links to the walkthrough video.
+const IndicatorCard = ({ image, video, title, tagline, body, onTry }) => (
   <Card>
     <div style={{ flexBasis: '30%', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <iframe className="yt-video" src={video} title={title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+      <a href={video} target="_blank" rel="noopener noreferrer" style={{ width: '100%' }}>
+        <img src={image} alt={title} style={{ width: '100%', borderRadius: '6px', display: 'block' }} />
+      </a>
     </div>
     <div style={{ flexDirection: 'column', marginLeft: '10px', flexBasis: '70%', padding: '10px' }}>
       <div style={{ fontSize: '24px', padding: '12px 0px' }}>{title}</div>
@@ -166,21 +177,23 @@ const IndicatorCard = ({ video, title, tagline, body, onTry }) => (
 
 const FreeTrialsPage = () => {
   const [showIndicator, setShowIndicator] = useState(false)
-  const [showAlpha, setShowAlpha] = useState(false)
+  // eslint-disable-next-line no-unused-vars
+  const [showAlpha, setShowAlpha] = useState(false) // kept for when ALPHA is re-enabled
 
   return (
     <Layout
-      title={'Free Trials — Indicators & Expert Advisors'}
-      description={"Try London Trading Institute's trading tools for free — download free trials of our Pro FX indicators, and start a 7-day free trial of the ALPHA Expert Advisor (EA) for MT4/MT5."}
+      title={'Free Indicator Trials'}
+      description={"Download free trials of London Trading Institute's Pro FX indicators — Daily Trading Range, Auto Fibonacci, Supply & Demand zones, automatic trend lines and a position risk manager."}
     >
       <IndicatorTrialModal show={showIndicator} onClose={() => setShowIndicator(false)} />
-      <AlphaTrialModal show={showAlpha} onClose={() => setShowAlpha(false)} />
+      {/* ALPHA modal hidden until the EA is ready to go public:
+      <AlphaTrialModal show={showAlpha} onClose={() => setShowAlpha(false)} /> */}
 
       <IntroCardIndicatorPage data={Content.introCard} />
 
       <Banner style={{ alignItems: 'center', display: 'flex', flexDirection: 'column', padding: '30px 20px' }}>
-        <div style={{ maxWidth: '500px' }}>Try our tools free before you commit.</div>
-        <div style={{ fontSize: '18px', marginTop: '10px' }}>Indicators and Expert Advisors — free trials available below.</div>
+        <div style={{ maxWidth: '500px' }}>Try our indicators free before you commit.</div>
+        <div style={{ fontSize: '18px', marginTop: '10px' }}>Free trials available below.</div>
         <Button onClick={() => setShowIndicator(true)} style={{ marginTop: '20px', padding: '10px 20px', fontSize: '20px' }}>
           Download Free Trial
         </Button>
@@ -193,37 +206,42 @@ const FreeTrialsPage = () => {
           <Underline />
         </div>
       </Header>
-      <RDiv style={{ paddingBottom: '60px', paddingTop: '1px' }}>
+      <RDiv style={{ paddingBottom: '100px', paddingTop: '1px' }}>
         <IndicatorCard
-          video="https://www.youtube.com/embed/4M4fadtAJhE"
+          image={dtr}
+          video="https://www.youtube.com/watch?v=4M4fadtAJhE"
           title="Daily Trading Range (DTR)"
           tagline="Use this to accurately predict the high and low of the day with great precision."
           body={`Too often in trading, we’ve seen traders go for unrealistic targets — targets that are outside the daily trading ranges of individual currency pairs. Understanding the daily trading range and its impact on currencies has vastly improved our trading performance. The Daily Trading Range indicator allows you to identify the predicted high and low of the day, helping you match significant daily levels and find levels of confluence.`}
           onTry={() => setShowIndicator(true)}
         />
         <IndicatorCard
-          video="https://www.youtube.com/embed/s3Gw_QKCqBM"
+          image={trendLines}
+          video="https://www.youtube.com/watch?v=s3Gw_QKCqBM"
           title="Automatic Trend Lines"
           tagline="Drawing the correct trendlines is essential to trading. Use our auto trendline tool to avoid costly mistakes."
           body={`Trend lines are essential to identifying trend direction and momentum. Drawn correctly, they can also be powerful tools for knowing when to get in and out of the market. This tool automatically detects trends for you and plots the lines, leaving you free of doubt when identifying overall trends and entry and exit points.`}
           onTry={() => setShowIndicator(true)}
         />
         <IndicatorCard
-          video="https://www.youtube.com/embed/gj0L6P004Yc"
+          image={autoFib}
+          video="https://www.youtube.com/watch?v=gj0L6P004Yc"
           title="Auto Fibonacci"
           tagline="An advanced automation tool to plot the ABCD market waves for you with predictable entries and matching profit targets."
           body={`Based on an advanced Fibonacci pattern, this system enhances the Fibonacci pattern from being just an indicator to being a complete stand-alone strategy. It automatically loads the Fibonacci swings onto any time frame, showing the market’s exact position in terms of retracement/extension and providing precise target and stop areas. Available as both a manual and automated indicator.`}
           onTry={() => setShowIndicator(true)}
         />
         <IndicatorCard
-          video="https://www.youtube.com/embed/Cvx8gAlzSuw"
+          image={supplyDemand}
+          video="https://www.youtube.com/watch?v=Cvx8gAlzSuw"
           title="Supply & Demand Zones"
           tagline="Use the same trading levels that institutions use so you are always trading off the best information."
           body={`This indicator slashes the time it takes to identify key levels of support and resistance on your charts. Markets consistently react to these levels, and knowing where they are is a vital component of success. With key levels drawn in for you automatically, your focus shifts from finding a trade to managing the trade instead.`}
           onTry={() => setShowIndicator(true)}
         />
         <IndicatorCard
-          video="https://www.youtube.com/embed/Cvx8gAlzSuw"
+          image={positionRisk}
+          video="https://www.youtube.com/watch?v=Cvx8gAlzSuw"
           title="Position Risk Manager"
           tagline="An intuitive tool that helps you manage risk on your position and calculate the position size for you based on your appetite."
           body={`This tool slashes the time it takes to identify your position size and risk-to-reward ratio, without much effort, allowing you to focus on your trade setup instead. Use sensible risk-to-reward ratios and leave the calculation to this tool.`}
@@ -231,7 +249,12 @@ const FreeTrialsPage = () => {
         />
       </RDiv>
 
-      {/* ---------- EXPERT ADVISORS (EAs) ---------- */}
+      {/* ---------- EXPERT ADVISORS (EAs) — HIDDEN FOR NOW ----------
+          ALPHA is built and wired to the licence manager + GHL, but is kept
+          unpublished until its Vantage setup instructions, email and video are
+          ready (per Andy). To re-enable: uncomment the <AlphaTrialModal/> above
+          and this section.
+
       <Header className="font-mobile" style={{ backgroundColor: '#F7F9FF' }}>
         <div>
           <div>Expert Advisors (EAs)</div>
@@ -249,7 +272,7 @@ const FreeTrialsPage = () => {
               An automated Expert Advisor (EA) for MetaTrader 4 &amp; 5 that executes a rule-based strategy for you.<br /><br />
             </div>
             <div style={{ fontSize: '14px', padding: '0px 0px', color: '#4B586A', fontWeight: 'normal' }}>
-              ALPHA runs a clearly defined, rule-based strategy automatically on your MT4/MT5 account, so trades are executed consistently without you having to watch every setup. Start a 7-day free trial to test it on your own account. When you sign up, we’ll email you the download link and a link to activate your trial — automation does not remove trading risk and does not guarantee profit.
+              ALPHA runs a clearly defined, rule-based strategy automatically on your MT4/MT5 account. Start a 7-day free trial to test it on your own account.
             </div>
             <Button onClick={() => setShowAlpha(true)} style={{ marginTop: '20px', padding: '5px 10px', fontSize: '20px' }}>
               Start 7-Day Free Trial
@@ -257,6 +280,7 @@ const FreeTrialsPage = () => {
           </div>
         </Card>
       </RDiv>
+      ---------- end hidden EA section ---------- */}
 
       <Testimonial />
       <Booking />

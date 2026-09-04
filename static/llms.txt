@@ -19,7 +19,7 @@ Contact: info@londontradinginstitute.com · +44 20 3887 7398 · London, United K
 
 ## Tools and resources
 
-- [Free Trials — Indicators & Expert Advisors](https://www.londontradinginstitute.com/free-trials): Free trials of LTI's Pro FX indicators and the ALPHA Expert Advisor (EA) for MetaTrader 4 and 5. ALPHA runs a rule-based strategy automatically on your MT4/MT5 account.
+- [Free Indicator Trials](https://www.londontradinginstitute.com/free-trials): Free trials of LTI's Pro FX indicators — Daily Trading Range, Auto Fibonacci, Supply & Demand zones, automatic trend lines and a position risk manager.
 - [Events](https://www.londontradinginstitute.com/events): Live trading events and webinars.
 
 ## About
