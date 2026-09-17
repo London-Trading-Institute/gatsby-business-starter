@@ -10,13 +10,13 @@
 # Old Algorithmic Trading Course page has been replaced by Auto Strategy Club.
 [[redirects]]
   from = "/algorithms"
-  to = "/auto-strategy-club"
+  to = "/auto-strategy-club/"
   status = 301
   force = true
 
 # Free Trials page was reverted back to the Indicators page.
 [[redirects]]
   from = "/free-trials"
-  to = "/indicators"
+  to = "/indicators/"
   status = 301
   force = true

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 
 // Single source of truth for the site's canonical URL.
 // NOTE: verify this matches the live domain in the Netlify dashboard.
-export const SITE_URL = 'https://www.londontradinginstitute.com'
+export const SITE_URL = 'https://londontradinginstitute.com'
 
 // Organisation + WebSite schema. This is site-wide (rendered from Layout) so
 // every page carries it. It tells LLMs / answer engines exactly who this
